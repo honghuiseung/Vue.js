@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Vue Router Sample</title>
+</head>
+<body>
+  <div id="app">
+    <p>
+      <router-view></router-view>
+    </p>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script src="../js/vue-router.js"></script>
+  <script>
+    var User = {
+      template:
+      `<div>
+        User Component
+        <router-view></router-view>
+      </div>`//줄바꿧을때 따옴표 그래이브 grave 탭과 개행을 인식
+    }
+    //file:///D:/JavaProgramming/vue_source/ch4/index02.html#/user
+    var UserProfile = { template: "<p>User Profile Component</p>" }
+    var UserPost = { template: "<p>User Post Component</p>" }
+
+    var routes= [
+      {
+        path: '/user',component: User, //routes의 path는 보통 짧게 지정함
+        children: [
+          {
+            path: 'posts',
+            component: UserPost
+          },
+          {
+            path: 'profile',
+            component: UserProfile
+          },
+        ]
+      }
+    ];
+    var router = new VueRouter({
+      //mode: 'history',  //root가 설정된 서버에서 작동 됨
+      routes
+    });
+    var app = new Vue({
+      router
+    }).$mount('#app');
+  </script>
+</body>
+</html>

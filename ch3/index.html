@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue Sample</title>
+</head>
+<body>
+	<div id="app">{{message}}</div>
+	<script src="../js/vue.js"></script>
+	<script>
+		new Vue({ //vue 특징 :실시간 업데이트 가능
+			el: '#app',
+			data:{
+				message :'Hello Vue.js'
+			},
+      beforeCreate: function() {
+        console.log("beforeCreate");
+      },
+      created: function() {
+        console.log("created");
+      },
+      mounted: function() {
+        console.log("mounted");
+        this.message = 'Hello Ashram!'
+      },
+      updated: function() {
+        console.log("updated");
+      }
+		});
+	</script>
+</body>
+</html>
