@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>엑시오스</title>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="getData">프레임워크 목록 가져오기</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios.min.js"></script>
+    <!-- HTTP통신:요청(request), 응답(responce) -->
+    <script>
+      new Vue({
+        el: '#app',
+        methods: {
+          getData : function(){
+            // this.$http.get(`https://raw.githubusercontent.com/ashram7/TypeScript/master/demo.json`)
+            //   .then(function(response){
+            //     console.log(response);
+            //     console.log(JSON.parse(response.data));
+            //   })
+
+            axios.get(`https://raw.githubusercontent.com/ashram7/TypeScript/master/demo.json`)
+              .then(function(response){
+                //JSON.parse(response.data)필요없음
+                console.log(response);
+              })
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

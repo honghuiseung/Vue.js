@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>디렉티브</title>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="clickBtn">클릭</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data:{
+            flag:true, //true면 보이고 false면 안보임
+            systems:['android', 'ios', 'window'],
+            uid: 'id'
+          },
+        methods:{
+          clickBtn:function() {
+            alert('clicked');
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
